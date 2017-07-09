@@ -8,7 +8,9 @@ const ApplianceComponent = (props) => {
     console.log(props.appliance);
     if(props.appliance.data.type === "switch"){
         return (
-            <SwitchComponent appliance={props.appliance} />      
+            <SwitchComponent 
+                appliance={props.appliance}
+                onSave={props.onSave} />      
         )
     }
     else if(props.appliance.data.type === "range"){
@@ -26,6 +28,7 @@ const ApplianceComponent = (props) => {
 ApplianceComponent.propTypes = {
     className: PropTypes.string,
     appliance: PropTypes.object,
+    onSave: PropTypes.func,
 };
 
 export default ApplianceComponent;

@@ -30,6 +30,19 @@ header {
     right: 0;
 }
 
+.ui.loader:before {
+    border-color: #ccc !important;
+}
+
+.ui.loader:after {
+    border-color: #21BA45 transparent transparent !important;
+}
+
+.ui.loader {
+    color: #000 !important;
+    text-transform: uppercase;
+}
+
 
 /*--------------------------------------------------------------
 # App
@@ -79,9 +92,17 @@ header {
     font-size: 1.05em;
 }
 
-.switchblock--title {
+.setup--title {
     font-size: 1.275em;
     text-transform: uppercase;
+}
+
+.setup--save {
+    margin-top: 1em;
+}
+
+.setup--loading {
+    margin-top: 1.5em;
 }
 
 /*--------------------------------------------------------------

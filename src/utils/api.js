@@ -1,24 +1,44 @@
+import axios from 'axios';
+
 const API_STEM = 'https://5961ca8d8492d90011f12d01.mockapi.io/doodad';
 
 const api = {
     fetchRoomsData(){
-        let URL = `${API_STEM}/rooms/`;
-        return fetch(URL)
-            .then((response) => response.json())
-            .then((responseJSON) => responseJSON)
+        const URL = `${API_STEM}/rooms/`;
+        return axios.get(URL)
+            .then((response) => response.data)
             .catch(function(err){
                 console.warn("Error in fetchRoomsData", err);
             })
     },
 
     fetchRoomData(id){
-        let URL = `${API_STEM}/rooms/${id}/appliances`;
-        return fetch(URL)
-            .then((response) => response.json())
-            .then((responseJSON) => responseJSON)
+        const URL = `${API_STEM}/rooms/${id}/appliances`;
+        return axios.get(URL)
+            .then((response) => response.data)
             .catch(function(err){
                 console.warn("Error in fetchRoomData", err);
             })
+    },
+
+    updateAppliance(data, applianceId, roomId){
+        const URL = `${API_STEM}/rooms/${roomId}/appliances/${applianceId}`;
+        
+        const config = {
+            headers: {"content-type": "application/json"},
+        }
+
+        return axios.put(
+                URL,
+                {
+                    "data": data,
+                },
+                config
+            )
+        .then((response) => response.data)
+        .catch(function(err){
+            console.warn("Error in fetchRoomData", err);
+        })      
     }
 };
 
