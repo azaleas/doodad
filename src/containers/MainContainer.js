@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 
-import RoomsContainer from './RoomsContainer'
+import RoomsContainer from './RoomsContainer';
 
 class MainContainer extends Component {
     /*
-        2 Separate components here: Home and Rooms
+        2 Separate components here: Home and Rooms ?
     */
     render() {
         return (
