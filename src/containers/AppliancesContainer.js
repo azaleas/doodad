@@ -11,10 +11,10 @@ class AppliancesContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="ui centered three column stackable grid container">
                 {
                     this.props.data.map((el, index) =>(
-                        <ApplianceComponent 
+                        <ApplianceComponent
                             key={index}
                             appliance={el} />
                     ))

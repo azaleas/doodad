@@ -14,9 +14,11 @@ import './../styles/App.css';
 class App extends Component {
   render() {
     return (
-        <div className="app container">
-            <h1 className="app--title tac">- doodad -</h1>
-            <p className="app--desc tac">Control Panel Demo</p>
+        <div className="app ui container">
+            <header>
+                <h1 className="app--title tac">- doodad -</h1>
+                <p className="app--desc tac">Control Panel Demo</p>
+            </header>
             <Switch>
                 <Route exact path="/" component={MainContainer} />
                 <Route exact path="/rooms" component={RoomsContainer} />

@@ -32,8 +32,8 @@ class RoomContainer extends Component {
         console.log(this.props);
         return (
             <div className="room">
-                <h1 className="room--title">{this.state.roomName}</h1>
-                <p className="room--desc">Total controls: <span>{this.state.totalControls}</span></p>
+                <h1 className="room--name tac">{this.state.roomName}</h1>
+                <p className="room--desc tac">Total controls: <span>{this.state.totalControls}</span></p>
                 <AppliancesContainer data={this.state.roomData}/>
             </div>
         );

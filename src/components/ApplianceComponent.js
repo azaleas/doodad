@@ -8,12 +8,12 @@ const ApplianceComponent = (props) => {
     console.log(props.appliance);
     if(props.appliance.data.type === "switch"){
         return (
-            <SwitchComponent data={props} />      
+            <SwitchComponent appliance={props.appliance} />      
         )
     }
     else if(props.appliance.data.type === "range"){
         return (
-            <RangeComponent data={props} />
+            <RangeComponent appliance={props.appliance} />
         )
     }
     else{

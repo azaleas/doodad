@@ -10,14 +10,26 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-.container {
+/* .container {
     margin: auto;
     max-width: 993px;
+} */
+
+header {
+    margin: 1.5em 0;
 }
 
 .tac {
     text-align: center;
 }
+
+.ui.small.modal {
+    width: 400px;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
 
 /*--------------------------------------------------------------
 # App
@@ -35,6 +47,41 @@
 .app--desc {
     margin: 3px 0;
     font-weight: 600;
+}
+
+.rooms, .appliance {
+    position: relative;
+    display: block;
+    background-color: #53cbf7;
+    color: #FFF;
+    cursor: pointer;
+    margin: 20px 0;
+    padding: 2em 0;
+    -webkit-box-shadow: 5px 5px 2px 0px rgba(83, 159, 247, 0.62);
+            box-shadow: 5px 5px 2px 0px rgba(83, 159, 247, 0.62);
+    -webkit-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+}
+
+.rooms:hover, .appliance:hover {
+    color: #ffed00;
+    -webkit-box-shadow: 5px 5px 2px 0px rgba(255, 237, 0, 0.41);
+            box-shadow: 5px 5px 2px 0px rgba(255, 237, 0, 0.41);
+}
+
+.rooms--name, .appliance-base--title {
+    font-size: 1.25em;
+}
+
+.appliance-base--status>span {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.05em;
+}
+
+.switchblock--title {
+    font-size: 1.275em;
+    text-transform: uppercase;
 }
 
 /*--------------------------------------------------------------
