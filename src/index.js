@@ -6,6 +6,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 import registerServiceWorker from './registerServiceWorker';
 
+import 'semantic-ui-css/semantic.min.css';
 import './styles/index.css';
 import App from './containers/App';
 
