@@ -5,6 +5,8 @@ import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 
 import MainContainer from './MainContainer';
+import RoomsContainer from './RoomsContainer';
+import RoomContainer from './RoomContainer';
 import NotFound from './../components/NotFound';
 
 import './../styles/App.css';
@@ -17,6 +19,8 @@ class App extends Component {
             <p className="app--desc tac">Control Panel Demo</p>
             <Switch>
                 <Route exact path="/" component={MainContainer} />
+                <Route exact path="/rooms" component={RoomsContainer} />
+                <Route exact path="/rooms/:roomId" component={RoomContainer} />
                 <Route path="*" component={NotFound} />
             </Switch>
         </div>
