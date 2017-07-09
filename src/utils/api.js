@@ -9,6 +9,16 @@ const api = {
             .catch(function(err){
                 console.warn("Error in fetchRoomsData", err);
             })
+    },
+
+    fetchRoomData(id){
+        let URL = `${API_STEM}/rooms/${id}/appliances`;
+        return fetch(URL)
+            .then((response) => response.json())
+            .then((responseJSON) => responseJSON)
+            .catch(function(err){
+                console.warn("Error in fetchRoomData", err);
+            })
     }
 };
 
