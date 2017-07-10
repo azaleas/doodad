@@ -10,6 +10,7 @@ class SwitchComponent extends Component {
         super(props);
         this.state={
             switchToggle: false,
+            switchToggleInitial: false,
             isLoading: false,
         }
     }
@@ -17,12 +18,14 @@ class SwitchComponent extends Component {
     componentDidMount(){
         this.setState({
             switchToggle:this.props.appliance.data.value,
+            switchToggleInitial:this.props.appliance.data.value,
         });
     }
 
     componentWillReceiveProps(){
         this.setState({
             isLoading: false,
+            switchToggleInitial: this.state.switchToggle,
         })
     }
 
@@ -31,6 +34,15 @@ class SwitchComponent extends Component {
         this.setState({
             switchToggle,
         });
+    }
+
+    modalClose = (event, object) => {
+        if(!this.state.saving){
+            this.setState({
+                mode: this.state.modeInitial,
+                switchToggle: this.state.switchToggleInitial,
+            });
+        }
     }
 
     onSave = (event, object) => {
@@ -45,6 +57,8 @@ class SwitchComponent extends Component {
     }
 
     render() {
+        const switchToggle = this.state.switchToggle;
+        const switchToggleProp = this.state.switchToggleInitial;
         return (
             <div className="column">
                 <Modal 
@@ -52,9 +66,10 @@ class SwitchComponent extends Component {
                         <div className="appliance">
                             <ControlBaseComponent 
                                 title={this.props.appliance.name}
-                                status={this.props.appliance.data.value ? "On" : "Off"}/>
+                                status={switchToggleProp ? "On" : "Off"}/>
                         </div>
                     } 
+                    onClose={this.modalClose}
                     size="small"
                     closeIcon='close'>
                     <Header 
@@ -66,7 +81,7 @@ class SwitchComponent extends Component {
                             <h1 className="switchblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
                             <Checkbox
                                 onChange={this.onChange}
-                                defaultChecked={this.props.appliance.data.value}
+                                defaultChecked={switchToggle}
                                 toggle 
                                 />
                             <div className="switchblock--save setup--save">
