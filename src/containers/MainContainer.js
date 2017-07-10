@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
-import RoomsContainer from './RoomsContainer';
+import Link from 'react-router-dom/Link';
 
 class MainContainer extends Component {
     /*
@@ -10,8 +9,21 @@ class MainContainer extends Component {
     */
     render() {
         return (
-           <div>
-               <RoomsContainer/>
+           <div className="ui centered two column stackable grid container">
+               <div className="column">
+                    <Link 
+                        className="baseblock tac"
+                        to="home">
+                        <h1 className="baseblock--title">Home</h1>
+                    </Link>
+               </div>
+               <div className="column">
+                    <Link 
+                        className="baseblock tac"
+                        to="rooms">
+                        <h1 className="baseblock--title">Rooms</h1>
+                    </Link>
+               </div>
            </div> 
         );
     }

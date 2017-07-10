@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Progress, Button, Modal, Loader } from 'semantic-ui-react';
+import { Progress, Button, Modal, Loader } from 'semantic-ui-react';
 
 import ControlBaseComponent from './ControlBaseComponent';
+import ApplianceHeader from './ApplianceHeader';
 
 class RangeComponent extends Component {
     constructor(props) {
@@ -65,6 +66,8 @@ class RangeComponent extends Component {
 
     render() {
         const rangeValue = this.state.rangeValue;
+        const location = (typeof this.props.appliance.roomInfo === "undefined" ? "Home" : this.props.appliance.roomInfo.name);
+        
         return (
             <div className="column">
                 <Modal 
@@ -72,19 +75,16 @@ class RangeComponent extends Component {
                         <div className="appliance">
                             <ControlBaseComponent 
                                 title={this.props.appliance.name}
-                                status={(rangeValue === "0" ? "Closed" : `${rangeValue}% Open`)}/>
+                                status={(rangeValue === 0 ? "Closed" : `${rangeValue}% Open`)}/>
                         </div>
                     } 
                     size="small"
                     onClose={this.modalClose}
                     closeIcon='close'>
-                    <Header 
-                        icon='options' 
-                        color='blue'
-                        content={`${this.props.appliance.roomInfo.name} Setup`} />
+                    <ApplianceHeader location={location} />
                     <Modal.Content>
-                        <div className="switchblock tac">
-                            <h1 className="switchblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
+                        <div className="rangeblock tac">
+                            <h1 className="rangeblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
                             <Progress percent={this.state.percent} indicating progress />
                             <Button 
                                 color="red" 
@@ -94,7 +94,7 @@ class RangeComponent extends Component {
                                 color="green" 
                                 inverted 
                                 onClick={this.onIncrement}>+</Button>
-                            <div className="switchblock--save setup--save">
+                            <div className="rangeblock--save setup--save">
                                 <Button 
                                     onClick={this.onSave}
                                     color="blue"

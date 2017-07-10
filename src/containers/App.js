@@ -5,6 +5,7 @@ import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 
 import MainContainer from './MainContainer';
+import HomeContainer from './HomeContainer';
 import RoomsContainer from './RoomsContainer';
 import RoomContainer from './RoomContainer';
 import NotFound from './../components/NotFound';
@@ -21,6 +22,7 @@ class App extends Component {
             </header>
             <Switch>
                 <Route exact path="/" component={MainContainer} />
+                <Route exact path="/home" component={HomeContainer} />
                 <Route exact path="/rooms" component={RoomsContainer} />
                 <Route exact path="/rooms/:roomId" component={RoomContainer} />
                 <Route path="*" component={NotFound} />

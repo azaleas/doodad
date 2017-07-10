@@ -56,9 +56,18 @@ const ApplianceComponent = (props) => {
                 modes={["extra wash", "cold", "eco", "fast"]} />
         )
     }
+    else if(props.appliance.data.type === "pool-temperature"){
+        return (
+            <TemperatureComponent 
+                appliance={props.appliance}
+                onSave={props.onSave}
+                min={[20, 68]}
+                max={[35, 95]} />
+        )
+    }
     else{
         return (
-            <div>Hello</div>
+            <div>This Component needs to be created!</div>
         )
     }
 };

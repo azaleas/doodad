@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Checkbox, Button, Dropdown, Modal, Loader } from 'semantic-ui-react';
+import { Checkbox, Button, Dropdown, Modal, Loader } from 'semantic-ui-react';
 
 import ControlBaseComponent from './ControlBaseComponent';
+import ApplianceHeader from './ApplianceHeader';
 
 
 /*Default component for Dishwasher and Washing Machine*/
@@ -94,6 +95,8 @@ class MachineComponent extends Component {
         const modeProp = this.state.modeInitial;
         const switchToggle = this.state.switchToggle;
         const switchToggleProp = this.state.switchToggleInitial;
+        const location = (typeof this.props.appliance.roomInfo === "undefined" ? "Home" : this.props.appliance.roomInfo.name);
+        
         return (
             <div className="column">
                 <Modal 
@@ -107,10 +110,7 @@ class MachineComponent extends Component {
                     size="small"
                     onClose={this.modalClose}
                     closeIcon='close'>
-                    <Header 
-                        icon='options' 
-                        color='blue'
-                        content={`${this.props.appliance.roomInfo.name} Setup`} />
+                    <ApplianceHeader location={location} />
                     <Modal.Content>
                         <div className="machineblock tac">
                             <h1 className="machineblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>

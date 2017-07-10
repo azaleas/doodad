@@ -62,7 +62,7 @@ header {
     font-weight: 600;
 }
 
-.rooms, .appliance {
+.rooms, .appliance, .baseblock {
     position: relative;
     display: block;
     background-color: #53cbf7;
@@ -76,7 +76,7 @@ header {
             transition: all 0.2s linear;
 }
 
-.rooms:hover, .appliance:hover {
+.rooms:hover, .appliance:hover, .baseblock:hover {
     color: #ffed00;
     -webkit-box-shadow: 5px 5px 2px 0px rgba(255, 237, 0, 0.41);
             box-shadow: 5px 5px 2px 0px rgba(255, 237, 0, 0.41);

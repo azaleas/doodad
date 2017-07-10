@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Checkbox, Button, Modal, Loader } from 'semantic-ui-react';
+import { Checkbox, Button, Modal, Loader } from 'semantic-ui-react';
 
 import ControlBaseComponent from './ControlBaseComponent';
+import ApplianceHeader from './ApplianceHeader';
 
 class SwitchComponent extends Component {
     constructor(props) {
@@ -59,6 +60,7 @@ class SwitchComponent extends Component {
     render() {
         const switchToggle = this.state.switchToggle;
         const switchToggleProp = this.state.switchToggleInitial;
+        const location = (typeof this.props.appliance.roomInfo === "undefined" ? "Home" : this.props.appliance.roomInfo.name)
         return (
             <div className="column">
                 <Modal 
@@ -72,10 +74,7 @@ class SwitchComponent extends Component {
                     onClose={this.modalClose}
                     size="small"
                     closeIcon='close'>
-                    <Header 
-                        icon='options' 
-                        color='blue'
-                        content={`${this.props.appliance.roomInfo.name} Setup`} />
+                    <ApplianceHeader location={location} />
                     <Modal.Content>
                         <div className="switchblock tac">
                             <h1 className="switchblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>

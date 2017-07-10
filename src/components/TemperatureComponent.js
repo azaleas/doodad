@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Progress, Button, Modal, Dropdown, Loader } from 'semantic-ui-react';
+import { Button, Modal, Dropdown, Loader } from 'semantic-ui-react';
 
 import ControlBaseComponent from './ControlBaseComponent';
+import ApplianceHeader from './ApplianceHeader';
 
 class TemperatureComponent extends Component {
     constructor(props) {
@@ -90,8 +91,7 @@ class TemperatureComponent extends Component {
     }
 
     onSave = (event, object) => {
-        if((this.state.temperature !== Number(this.state.temperatureInitial)) && 
-            (this.state.degreeSelect !== this.state.degreeSelectInitial)){
+        if(this.state.temperature !== this.state.temperatureInitial){
             const data = Object.assign({}, this.props.appliance.data)
             data.value = this.state.temperature;
             data.degrees = this.state.degreeSelect;
@@ -117,6 +117,8 @@ class TemperatureComponent extends Component {
         const temperatureProp = this.state.temperatureInitial;
         const degreeSelect = this.state.degreeSelect;
         const degreeSelectProp = this.state.degreeSelectInitial;
+        const location = (typeof this.props.appliance.roomInfo === "undefined" ? "Home" : this.props.appliance.roomInfo.name);
+        
         return (
             <div className="column">
                 <Modal 
@@ -130,10 +132,7 @@ class TemperatureComponent extends Component {
                     size="small"
                     onClose={this.modalClose}
                     closeIcon='close'>
-                    <Header 
-                        icon='options' 
-                        color='blue'
-                        content={`${this.props.appliance.roomInfo.name} Setup`} />
+                    <ApplianceHeader location={location} />
                     <Modal.Content>
                         <div className="temperatureblock tac">
                             <h1 className="temperatureblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
@@ -141,7 +140,7 @@ class TemperatureComponent extends Component {
                                 <input 
                                 type="number"
                                 onChange={this.onTemperatureChange}
-                                value={this.state.temperature}
+                                value={temperature}
                                 min={this.state.min}
                                 max={this.state.max} />
                             </div>
