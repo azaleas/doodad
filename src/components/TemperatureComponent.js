@@ -90,8 +90,8 @@ class TemperatureComponent extends Component {
     }
 
     onSave = (event, object) => {
-        if((this.state.temperature !== Number(this.props.appliance.data.value)) && 
-            (this.state.temperature !== this.props.appliance.data.degrees)){
+        if((this.state.temperature !== Number(this.state.temperatureInitial)) && 
+            (this.state.degreeSelect !== this.state.degreeSelectInitial)){
             const data = Object.assign({}, this.props.appliance.data)
             data.value = this.state.temperature;
             data.degrees = this.state.degreeSelect;

@@ -97,6 +97,10 @@ header {
     text-transform: uppercase;
 }
 
+.setup--info {
+    font-size: 0.8em;
+}
+
 .setup--save {
     margin-top: 1em;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SwitchComponent from './SwitchComponent';
+import MachineComponent from './MachineComponent';
 import RangeComponent from './RangeComponent';
 import TemperatureComponent from './TemperatureComponent';
 
@@ -37,6 +38,22 @@ const ApplianceComponent = (props) => {
                 onSave={props.onSave}
                 min={[10, 50]}
                 max={[95, 203]} />
+        )
+    }
+    else if(props.appliance.data.type === "washingmachine_switch"){
+        return (
+            <MachineComponent 
+                appliance={props.appliance}
+                onSave={props.onSave}
+                modes={["delicate", "cotton", "eco", "fast 30"]} />
+        )
+    }
+    else if(props.appliance.data.type === "dishwasher_switch"){
+        return (
+            <MachineComponent 
+                appliance={props.appliance}
+                onSave={props.onSave}
+                modes={["extra wash", "cold", "eco", "fast"]} />
         )
     }
     else{

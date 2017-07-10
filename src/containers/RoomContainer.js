@@ -40,7 +40,6 @@ class RoomContainer extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="room">
                 <h1 className="room--name tac">{this.state.roomName}</h1>
