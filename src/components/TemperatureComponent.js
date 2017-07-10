@@ -27,6 +27,18 @@ class TemperatureComponent extends Component {
             degreeSelect: this.props.appliance.data.degrees,
             degreeSelectInitial: this.props.appliance.data.degrees,
         });
+        if(this.state.degreeSelect === "C"){
+            this.setState({
+                min: this.props.min[0],
+                max: this.props.max[0],
+            })
+        }
+        else{
+            this.setState({
+                min: this.props.min[1],
+                max: this.props.max[1],
+            })
+        }
     }
 
     componentWillReceiveProps(nextProps){
@@ -40,7 +52,13 @@ class TemperatureComponent extends Component {
 
 
     onTemperatureChange = (event) => {
-        const temperature = event.target.value;
+        let temperature = event.target.value;
+        if(temperature >= this.state.max){
+            temperature = this.state.max;
+        }
+        else if(temperature <= this.state.min){
+            temperature = this.state.min;
+        }
         this.setState({
             temperature,
         })
@@ -179,6 +197,8 @@ TemperatureComponent.propTypes = {
     className: PropTypes.string,
     appliance: PropTypes.object,
     onSave: PropTypes.func,
+    min: PropTypes.array,
+    max: PropTypes.array,
 };
 
 export default TemperatureComponent;

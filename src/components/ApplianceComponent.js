@@ -21,11 +21,22 @@ const ApplianceComponent = (props) => {
                 onSave={props.onSave} />
         )
     }
-    else if(props.appliance.data.type === "temperature"){
+    else if(props.appliance.data.type === "room-temperature"){
         return (
             <TemperatureComponent 
                 appliance={props.appliance}
-                onSave={props.onSave} />
+                onSave={props.onSave}
+                min={[16, 61]}
+                max={[40, 104]} />
+        )
+    }
+    else if(props.appliance.data.type === "water-temperature"){
+        return (
+            <TemperatureComponent 
+                appliance={props.appliance}
+                onSave={props.onSave}
+                min={[10, 50]}
+                max={[95, 203]} />
         )
     }
     else{
