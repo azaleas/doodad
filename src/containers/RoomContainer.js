@@ -17,14 +17,25 @@ class RoomContainer extends Component {
 
     componentWillMount(){
         const roomId = this.props.match.params.roomId;
-        api.fetchRoomData(roomId)
+        api.fetchRoomApplianceData(roomId)
             .then((roomData) => {
-                console.log(roomData);
-                this.setState({
-                    roomData,
-                    roomName: roomData[0].roomInfo.name,
-                    totalControls: roomData.length,
-                });
+                if(roomData.length){
+                    this.setState({
+                        roomData,
+                        roomName: roomData[0].roomInfo.name,
+                        totalControls: roomData.length,
+                    });
+                }
+                else{
+                    api.fetchRoomData(roomId)
+                        .then((response) => {
+                            this.setState({
+                                roomData,
+                                roomName: response.name,
+                                totalControls: roomData.length,
+                            });
+                        })
+                }
             })
     }
 

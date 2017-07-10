@@ -13,11 +13,21 @@ const api = {
     },
 
     fetchRoomData(id){
-        const URL = `${API_STEM}/rooms/${id}/appliances`;
+        const URL = `${API_STEM}/rooms/${id}`;
         return axios.get(URL)
             .then((response) => response.data)
             .catch(function(err){
                 console.warn("Error in fetchRoomData", err);
+            })
+    },
+
+
+    fetchRoomApplianceData(id){
+        const URL = `${API_STEM}/rooms/${id}/appliances`;
+        return axios.get(URL)
+            .then((response) => response.data)
+            .catch(function(err){
+                console.warn("Error in fetchRoomApplianceData", err);
             })
     },
 
