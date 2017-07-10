@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Header, Checkbox, Button, Modal, Loader } from 'semantic-ui-react'
+import { Header, Checkbox, Button, Modal, Loader } from 'semantic-ui-react';
 
 import ControlBaseComponent from './ControlBaseComponent';
 
@@ -45,7 +45,6 @@ class SwitchComponent extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="column">
                 <Modal 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import SwitchComponent from './SwitchComponent';
 import RangeComponent from './RangeComponent';
+import TemperatureComponent from './TemperatureComponent';
 
 const ApplianceComponent = (props) => {
     console.log(props.appliance);
@@ -15,7 +16,16 @@ const ApplianceComponent = (props) => {
     }
     else if(props.appliance.data.type === "range"){
         return (
-            <RangeComponent appliance={props.appliance} />
+            <RangeComponent 
+                appliance={props.appliance}
+                onSave={props.onSave} />
+        )
+    }
+    else if(props.appliance.data.type === "temperature"){
+        return (
+            <TemperatureComponent 
+                appliance={props.appliance}
+                onSave={props.onSave} />
         )
     }
     else{
