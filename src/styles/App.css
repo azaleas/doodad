@@ -22,7 +22,7 @@ header {
     right: 0;
 }
 header ~ div{
-    margin-top: 80px !important;
+    margin-top: 140px !important;
 }
 
 .tac {

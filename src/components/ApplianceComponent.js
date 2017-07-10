@@ -40,7 +40,7 @@ const ApplianceComponent = (props) => {
                 max={[95, 203]} />
         )
     }
-    else if(props.appliance.data.type === "washingmachine_switch"){
+    else if(props.appliance.data.type === "washingmachine-switch"){
         return (
             <MachineComponent 
                 appliance={props.appliance}
@@ -48,7 +48,7 @@ const ApplianceComponent = (props) => {
                 modes={["delicate", "cotton", "eco", "fast 30"]} />
         )
     }
-    else if(props.appliance.data.type === "dishwasher_switch"){
+    else if(props.appliance.data.type === "dishwasher-sswitch"){
         return (
             <MachineComponent 
                 appliance={props.appliance}

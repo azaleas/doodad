@@ -16,6 +16,14 @@ class HomeContainer extends Component {
     }
 
     componentWillMount(){
+        this.fetchAppliances();
+    }
+
+    componentWillReceiveProps(){
+        this.fetchAppliances();
+    }
+
+    fetchAppliances(){
         api.fetchHomeAppliances()
             .then((response) => {
                 this.setState({

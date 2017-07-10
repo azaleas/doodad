@@ -90,7 +90,24 @@ const api = {
             )
         .then((response) => response.data)
         .catch(function(err){
-            console.warn("Error in updateHomeAppliance", err);
+            console.warn("Error in createRoom", err);
+        })      
+    },
+
+    createHomeAppliance(data){
+        const URL = `${API_STEM}/home`;
+        
+        return axios.post(
+                URL,
+                {
+                    "name": data.name,
+                    "data": data.data,
+                },
+                config
+            )
+        .then((response) => response.data)
+        .catch(function(err){
+            console.warn("Error in createHomeAppliance", err);
         })      
     }
 };
