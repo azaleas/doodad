@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 
 import Link from 'react-router-dom/Link';
 
-import CreateRoomContainer from './../containers/CreateRoomContainer';
-
 const RoomsComponent = (props) => {
     return (
         <div className="ui container">
-            <CreateRoomContainer/>
             <div className="ui centered three column stackable grid">
                 {
                     props.data.map((el, index) => (

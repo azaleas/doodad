@@ -10,16 +10,15 @@ import RoomsContainer from './RoomsContainer';
 import RoomContainer from './RoomContainer';
 import NotFound from './../components/NotFound';
 
+import Header from './../components/Header';
+
 import './../styles/App.css';
 
 class App extends Component {
   render() {
     return (
         <div className="app ui container">
-            <header>
-                <h1 className="app--title tac">- doodad -</h1>
-                <p className="app--desc tac">Control Panel Demo</p>
-            </header>
+            <Header/>
             <Switch>
                 <Route exact path="/" component={MainContainer} />
                 <Route exact path="/home" component={HomeContainer} />
