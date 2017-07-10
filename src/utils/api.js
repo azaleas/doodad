@@ -2,8 +2,12 @@ import axios from 'axios';
 
 const API_STEM = 'https://5961ca8d8492d90011f12d01.mockapi.io/doodad';
 
-const api = {
+const config = {
+    headers: {"content-type": "application/json"},
+};
 
+const api = {
+    
     fetchHomeAppliances(){
         const URL = `${API_STEM}/home`;
         return axios.get(URL)
@@ -44,10 +48,6 @@ const api = {
     updateAppliance(data, applianceId, roomId){
         const URL = `${API_STEM}/rooms/${roomId}/appliances/${applianceId}`;
         
-        const config = {
-            headers: {"content-type": "application/json"},
-        }
-
         return axios.put(
                 URL,
                 {
@@ -62,16 +62,29 @@ const api = {
     },
 
     updateHomeAppliance(data, applianceId){
+        
         const URL = `${API_STEM}/home/${applianceId}`;
         
-        const config = {
-            headers: {"content-type": "application/json"},
-        }
-
         return axios.put(
                 URL,
                 {
                     "data": data,
+                },
+                config
+            )
+        .then((response) => response.data)
+        .catch(function(err){
+            console.warn("Error in updateHomeAppliance", err);
+        })      
+    },
+
+    createRoom(title){
+        const URL = `${API_STEM}/rooms`;
+        
+        return axios.post(
+                URL,
+                {
+                    "name": title,
                 },
                 config
             )

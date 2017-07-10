@@ -16,7 +16,13 @@
 } */
 
 header {
-    margin: 1.5em 0;
+    margin: 1.5em auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+header ~ div{
+    margin-top: 80px !important;
 }
 
 .tac {
@@ -84,6 +90,10 @@ header {
 
 .rooms--name, .appliance-base--title {
     font-size: 1.25em;
+}
+
+.room--name {
+    padding-top: 0.5em;
 }
 
 .appliance-base--status>span {
