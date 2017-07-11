@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Redirect from 'react-router-dom/Redirect';
 
-import { Button, Modal, Dropdown} from 'semantic-ui-react';
+import { Modal, Dropdown} from 'semantic-ui-react';
 
 import api from './../utils/api';
 
@@ -153,13 +153,8 @@ class CreateHomeApplianceContainer extends Component {
                 <div className="create-homeappliance">
                     <Modal 
                         trigger={
-                            <div className="tac">
-                                <br/>
-                                <Button 
-                                    color="green"
-                                    inverted>
-                                    New Home Appliance
-                                </Button>
+                            <div className="addblock--trigger">
+                                Home Appliance
                             </div>
                         } 
                         onClose={this.modalClose}

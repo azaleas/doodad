@@ -37,7 +37,6 @@ const HeaderTitleComponent = (props) => {
                     </div>
                 </Menu.Menu>
             </Menu>
-            <br/>
         </div>
     );
 };

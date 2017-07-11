@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Dropdown } from 'semantic-ui-react';
+
 import CreateRoomContainer from './../containers/CreateRoomContainer';
 import CreateHomeApplianceContainer from './../containers/CreateHomeApplianceContainer';
 import CreateRoomApplianceContainer from './../containers/CreateRoomApplianceContainer';
@@ -15,9 +17,17 @@ const Header = (props) => {
         return (
             <header>
                 <HeaderTitleComponent/>
-                <div className="ui centered two column stackable grid container">
-                    <CreateHomeApplianceContainer/>
-                    <CreateRoomContainer/>
+                <div className="ui centered grid container addblock">
+                    <Dropdown text='Add New' icon='add' labeled button className='icon green'>
+                        <Dropdown.Menu>
+                            <Dropdown.Item>
+                                <CreateHomeApplianceContainer/>
+                            </Dropdown.Item>
+                            <Dropdown.Item>
+                                <CreateRoomContainer/>
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
             </header>
         );
@@ -26,10 +36,20 @@ const Header = (props) => {
         return (
             <header>
                 <HeaderTitleComponent/>
-                <div className="ui centered two column stackable grid container">
-                    <CreateHomeApplianceContainer/>
-                    <CreateRoomContainer/>
-                    <CreateRoomApplianceContainer roomId={Number(pathname.match(roomsRegExp)[1])}/>
+                <div className="ui centered grid container addblock">
+                    <Dropdown text='Add New' icon='add' labeled button className='icon green'>
+                        <Dropdown.Menu>
+                            <Dropdown.Item>
+                                <CreateHomeApplianceContainer/>
+                            </Dropdown.Item>
+                            <Dropdown.Item>
+                                <CreateRoomContainer/>
+                            </Dropdown.Item>
+                            <Dropdown.Item>
+                                <CreateRoomApplianceContainer roomId={Number(pathname.match(roomsRegExp)[1])}/>
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </div>
             </header>
         );

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Redirect from 'react-router-dom/Redirect';
 
-import { Button, Modal } from 'semantic-ui-react';
+import { Modal } from 'semantic-ui-react';
 
 import api from './../utils/api';
 
@@ -86,13 +86,8 @@ class CreateRoomContainer extends Component {
                 <div className="create-room">
                     <Modal 
                         trigger={
-                            <div className="tac">
-                                <br/>
-                                <Button 
-                                    color="green"
-                                    inverted>
-                                    New Room
-                                </Button>
+                            <div className="addblock--trigger">
+                                Room
                             </div>
                         } 
                         onClose={this.modalClose}
