@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react';
 
 import CreateRoomContainer from './../containers/CreateRoomContainer';
-import CreateHomeApplianceContainer from './../containers/CreateHomeApplianceContainer';
-import CreateRoomApplianceContainer from './../containers/CreateRoomApplianceContainer';
+import CreateHomeApplianceComponent from './../components/create_appliance/CreateHomeApplianceComponent';
+import CreateRoomApplianceComponent from './../components/create_appliance/CreateRoomApplianceComponent';
 import HeaderTitleComponent from './HeaderTitleComponent';
 
 const Header = (props) => {
@@ -21,7 +21,7 @@ const Header = (props) => {
                     <Dropdown text='Add New' icon='add' labeled button className='icon green'>
                         <Dropdown.Menu>
                             <Dropdown.Item>
-                                <CreateHomeApplianceContainer/>
+                                <CreateHomeApplianceComponent/>
                             </Dropdown.Item>
                             <Dropdown.Item>
                                 <CreateRoomContainer/>
@@ -40,13 +40,13 @@ const Header = (props) => {
                     <Dropdown text='Add New' icon='add' labeled button className='icon green'>
                         <Dropdown.Menu>
                             <Dropdown.Item>
-                                <CreateHomeApplianceContainer/>
+                                <CreateHomeApplianceComponent/>
                             </Dropdown.Item>
                             <Dropdown.Item>
                                 <CreateRoomContainer/>
                             </Dropdown.Item>
                             <Dropdown.Item>
-                                <CreateRoomApplianceContainer roomId={Number(pathname.match(roomsRegExp)[1])}/>
+                                <CreateRoomApplianceComponent roomId={Number(pathname.match(roomsRegExp)[1])}/>
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
