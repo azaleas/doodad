@@ -17,7 +17,6 @@ class AppliancesContainer extends Component {
     onSave = (dataObject, applianceId, roomId) => {
         api.updateAppliance(dataObject, applianceId, roomId)
             .then((response) => {
-                console.log(response);
                 if(response.data){
                     this.setState({
                         data: response,

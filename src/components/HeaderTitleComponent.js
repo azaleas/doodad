@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'react-router-dom/Link';
 
-import { Dropdown, Icon, Menu } from 'semantic-ui-react'
+import { Dropdown, Menu } from 'semantic-ui-react'
 
 
 const HeaderTitleComponent = (props) => {
-    const pathname = window.location.pathname;
     return (
         <div className="ui container">
             <Menu attached='top'>

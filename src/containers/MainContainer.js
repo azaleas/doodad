@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import Link from 'react-router-dom/Link';
 
-import Header from './../components/Header';
-
 class MainContainer extends Component {
     /*
         2 Separate components here: Home and Rooms ?

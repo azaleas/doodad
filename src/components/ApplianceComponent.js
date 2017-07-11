@@ -7,7 +7,6 @@ import RangeComponent from './appliances/RangeComponent';
 import TemperatureComponent from './appliances/TemperatureComponent';
 
 const ApplianceComponent = (props) => {
-    console.log(props.appliance);
     if(props.appliance.data.type === "switch"){
         return (
             <SwitchComponent 
