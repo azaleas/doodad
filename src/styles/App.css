@@ -58,10 +58,6 @@ header {
     background-color: #FFF;
 }
 
-.addblock {
-    margin: 15px auto !important;
-}
-
 header ~ div{
     margin-top: 160px !important;
 }
@@ -69,6 +65,31 @@ header ~ div{
 div[class^="create-"]{
     margin: auto;
 }
+
+.addblock {
+    margin: 15px auto !important;
+}
+
+.addblock--trigger {
+    padding: 10px 3px !important;
+    color: #000;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+} 
+
+header .menu>a>.item {
+    -webkit-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+        cursor: pointer;  
+}
+
+.addblock--trigger:hover, header .menu>a>.item:hover {
+    background-color: #f1f1f1;
+}
+
 
 /*--------------------------------------------------------------
 # App

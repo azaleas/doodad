@@ -20,12 +20,8 @@ const Header = (props) => {
                 <div className="ui centered grid container addblock">
                     <Dropdown text='Add New' icon='add' labeled button className='icon green'>
                         <Dropdown.Menu>
-                            <Dropdown.Item>
-                                <CreateHomeApplianceComponent/>
-                            </Dropdown.Item>
-                            <Dropdown.Item>
-                                <CreateRoomContainer/>
-                            </Dropdown.Item>
+                            <CreateHomeApplianceComponent/>
+                            <CreateRoomContainer/>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
@@ -39,15 +35,9 @@ const Header = (props) => {
                 <div className="ui centered grid container addblock">
                     <Dropdown text='Add New' icon='add' labeled button className='icon green'>
                         <Dropdown.Menu>
-                            <Dropdown.Item>
-                                <CreateHomeApplianceComponent/>
-                            </Dropdown.Item>
-                            <Dropdown.Item>
-                                <CreateRoomContainer/>
-                            </Dropdown.Item>
-                            <Dropdown.Item>
-                                <CreateRoomApplianceComponent roomId={Number(pathname.match(roomsRegExp)[1])}/>
-                            </Dropdown.Item>
+                            <CreateHomeApplianceComponent/>
+                            <CreateRoomContainer/>
+                            <CreateRoomApplianceComponent roomId={Number(pathname.match(roomsRegExp)[1])}/>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
