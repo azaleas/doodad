@@ -18,6 +18,7 @@
 header {
     margin: 1.5em auto;
     position: fixed;
+    z-index: 10;
     left: 0;
     right: 0;
 }
@@ -64,7 +65,9 @@ header ~ div{
 }
 
 .app--desc {
-    margin: 3px 0;
+    font-size: 0.5em;
+    vertical-align: middle;
+    color: #000;
     font-weight: 600;
 }
 
