@@ -54,12 +54,21 @@ class TemperatureComponent extends Component {
 
     onTemperatureChange = (event) => {
         let temperature = event.target.value;
+        this.setState({
+            temperature,
+        })
+    }
+
+    onTemperatureBlur = (event) => {
+        let temperature = event.target.value;
+        
         if(temperature >= this.state.max){
             temperature = this.state.max;
         }
         else if(temperature <= this.state.min){
             temperature = this.state.min;
         }
+
         this.setState({
             temperature,
         })
@@ -136,10 +145,14 @@ class TemperatureComponent extends Component {
                     <Modal.Content>
                         <div className="temperatureblock tac">
                             <h1 className="temperatureblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
+                            <p className="setup--info">
+                                {`* Min: ${this.state.min}° ${degreeSelect} - Max: ${this.state.max}° ${degreeSelect}`}
+                            </p>
                             <div className="temperatureblock--input ui input">
                                 <input 
                                 type="number"
                                 onChange={this.onTemperatureChange}
+                                onBlur={this.onTemperatureBlur}
                                 value={temperature}
                                 min={this.state.min}
                                 max={this.state.max} />
