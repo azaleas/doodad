@@ -150,7 +150,7 @@ class CreateRoomApplianceContainer extends Component {
                 <Redirect to={`/rooms/${this.props.roomId}`} />
             )
             :(
-                <div className="create-homeappliance">
+                <div className="create-roomappliance">
                     <Modal 
                         trigger={
                             <div className="addblock--trigger">
