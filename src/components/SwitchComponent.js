@@ -68,7 +68,7 @@ class SwitchComponent extends Component {
                         <div className="appliance">
                             <ControlBaseComponent 
                                 title={this.props.appliance.name}
-                                status={switchToggleProp ? "On" : "Off"}/>
+                                status={switchToggleProp ? "On (Open)" : "Off (Closed)"}/>
                         </div>
                     } 
                     onClose={this.modalClose}
@@ -78,6 +78,7 @@ class SwitchComponent extends Component {
                     <Modal.Content>
                         <div className="switchblock tac">
                             <h1 className="switchblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
+                            <p className="setup--info">* On (Open) / Off (Closed)</p>
                             <Checkbox
                                 onChange={this.onChange}
                                 defaultChecked={switchToggle}
