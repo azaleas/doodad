@@ -2,7 +2,11 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # General
+# Header
 # App
+# Main, Rooms, Appliance blocks
+# Base Appliance Component
+# Control Base Component
 # Responsiveness
 --------------------------------------------------------------*/
 
@@ -10,20 +14,9 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-/* .container {
-    margin: auto;
-    max-width: 993px;
-} */
 
-header {
-    margin: 1.5em auto;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    right: 0;
-}
-header ~ div{
-    margin-top: 140px !important;
+html, body {
+    height: auto;
 }
 
 .tac {
@@ -52,12 +45,34 @@ header ~ div{
 
 
 /*--------------------------------------------------------------
-# App
+# Header
 --------------------------------------------------------------*/
 
-.app {
-    padding: 1em 0;
+header {
+    padding: 1.5em 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFF;
 }
+
+.addblock {
+    margin: 15px auto !important;
+}
+
+header ~ div{
+    margin-top: 160px !important;
+}
+
+div[class^="create-"]{
+    margin: auto;
+}
+
+/*--------------------------------------------------------------
+# App
+--------------------------------------------------------------*/
 
 .app--title {
     margin: 0;
@@ -71,13 +86,21 @@ header ~ div{
     font-weight: 600;
 }
 
+.rooms--name {
+    font-size: 1.25em;
+}
+
+
+/*--------------------------------------------------------------
+# Main, Rooms, Appliance blocks
+--------------------------------------------------------------*/
+
 .rooms, .appliance, .baseblock {
     position: relative;
     display: block;
     background-color: #53cbf7;
     color: #FFF;
     cursor: pointer;
-    margin: 20px 0;
     padding: 2em 0;
     -webkit-box-shadow: 5px 5px 2px 0px rgba(83, 159, 247, 0.62);
             box-shadow: 5px 5px 2px 0px rgba(83, 159, 247, 0.62);
@@ -91,12 +114,12 @@ header ~ div{
             box-shadow: 5px 5px 2px 0px rgba(255, 237, 0, 0.41);
 }
 
-.rooms--name, .appliance-base--title {
-    font-size: 1.25em;
-}
+/*--------------------------------------------------------------
+# Control Base Component
+--------------------------------------------------------------*/
 
-.room--name {
-    padding-top: 0.5em;
+.appliance-base--title {
+    font-size: 1.25em;
 }
 
 .appliance-base--status>span {
@@ -104,6 +127,10 @@ header ~ div{
     text-transform: uppercase;
     font-size: 1.05em;
 }
+
+/*--------------------------------------------------------------
+# Base Appliance Component
+--------------------------------------------------------------*/
 
 .setup--title {
     font-size: 1.275em;
@@ -122,15 +149,43 @@ header ~ div{
     margin-top: 1.5em;
 }
 
+/*--------------------------------------------------------------
+# Temperature Base Appliance
+--------------------------------------------------------------*/
 
 .temperatureblock--input {
     margin: 15px 0;
 }
 
-.temperatureblock--select {
-    
-}
-
 /*--------------------------------------------------------------
 # Responsiveness
 --------------------------------------------------------------*/
+
+@media only screen and (max-width: 767px){
+    .right.menu .item:before {
+        background: none;
+    }
+    header {
+        padding: 0.25em 0;
+    }
+
+    header ~ div{
+        margin-top: 130px !important;
+    }
+}
+
+@media only screen and (max-width: 420px){
+    .ui.small.modal {
+        width: 95%;
+        margin: auto;
+        /*left: 50%;*/
+        /*right: 50%;*/
+    }
+}
+
+
+@media only screen and (max-width: 370px){
+    .app--title {
+        font-size: 1.5em;
+    }
+}
