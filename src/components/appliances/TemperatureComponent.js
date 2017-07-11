@@ -129,78 +129,76 @@ class TemperatureComponent extends Component {
         const location = (typeof this.props.appliance.roomInfo === "undefined" ? "Home" : this.props.appliance.roomInfo.name);
         
         return (
-            <div className="column">
-                <Modal 
-                    trigger={
-                        <div className="appliance">
-                            <ControlBaseComponent 
-                                title={this.props.appliance.name}
-                                status={`${temperatureProp}° ${degreeSelectProp}`}/>
+            <Modal 
+                trigger={
+                    <div className="appliance">
+                        <ControlBaseComponent 
+                            title={this.props.appliance.name}
+                            status={`${temperatureProp}° ${degreeSelectProp}`}/>
+                    </div>
+                } 
+                size="small"
+                onClose={this.modalClose}
+                closeIcon='close'>
+                <ApplianceHeader location={location} />
+                <Modal.Content>
+                    <div className="temperatureblock tac">
+                        <h1 className="temperatureblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
+                        <p className="setup--info">
+                            {`* Min: ${this.state.min}° ${degreeSelect} - Max: ${this.state.max}° ${degreeSelect}`}
+                        </p>
+                        <div className="temperatureblock--input ui input">
+                            <input 
+                            type="number"
+                            onChange={this.onTemperatureChange}
+                            onBlur={this.onTemperatureBlur}
+                            value={temperature}
+                            min={this.state.min}
+                            max={this.state.max} />
                         </div>
-                    } 
-                    size="small"
-                    onClose={this.modalClose}
-                    closeIcon='close'>
-                    <ApplianceHeader location={location} />
-                    <Modal.Content>
-                        <div className="temperatureblock tac">
-                            <h1 className="temperatureblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
-                            <p className="setup--info">
-                                {`* Min: ${this.state.min}° ${degreeSelect} - Max: ${this.state.max}° ${degreeSelect}`}
-                            </p>
-                            <div className="temperatureblock--input ui input">
-                                <input 
-                                type="number"
-                                onChange={this.onTemperatureChange}
-                                onBlur={this.onTemperatureBlur}
-                                value={temperature}
-                                min={this.state.min}
-                                max={this.state.max} />
-                            </div>
-                            <div className="temperatureblock--select">
-                                <Dropdown 
-                                    selection 
-                                    compact
-                                    onChange={this.onDegreeChange}
-                                    value={degreeSelect} 
-                                    options={
-                                        [
-                                            {
-                                                key: "C",
-                                                value: "C",
-                                                text: "C"
-                                            },
-                                            {
-                                                key: "F",
-                                                value: "F",
-                                                text: "F"
-                                            }
-                                        ]
-                                    } />
-                            </div>
-                            <div className="temperatureblock--save setup--save">
-                                <Button 
-                                    onClick={this.onSave}
-                                    color="blue"
-                                    inverted>
-                                    Save
-                                </Button>
-                            </div>
-                            {
-                                (this.state.isLoading)
-                                ? (
-                                    <div className="setup--loading">
-                                        <Loader inline="centered">Loading...</Loader>
-                                    </div>
-                                )
-                                :(
-                                    <p></p>
-                                )
-                            }
+                        <div className="temperatureblock--select">
+                            <Dropdown 
+                                selection 
+                                compact
+                                onChange={this.onDegreeChange}
+                                value={degreeSelect} 
+                                options={
+                                    [
+                                        {
+                                            key: "C",
+                                            value: "C",
+                                            text: "C"
+                                        },
+                                        {
+                                            key: "F",
+                                            value: "F",
+                                            text: "F"
+                                        }
+                                    ]
+                                } />
                         </div>
-                    </Modal.Content>
-                </Modal>
-            </div>
+                        <div className="temperatureblock--save setup--save">
+                            <Button 
+                                onClick={this.onSave}
+                                color="blue"
+                                inverted>
+                                Save
+                            </Button>
+                        </div>
+                        {
+                            (this.state.isLoading)
+                            ? (
+                                <div className="setup--loading">
+                                    <Loader inline="centered">Loading...</Loader>
+                                </div>
+                            )
+                            :(
+                                <p></p>
+                            )
+                        }
+                    </div>
+                </Modal.Content>
+            </Modal>
         )
     }
 };

@@ -62,51 +62,49 @@ class SwitchComponent extends Component {
         const switchToggleProp = this.state.switchToggleInitial;
         const location = (typeof this.props.appliance.roomInfo === "undefined" ? "Home" : this.props.appliance.roomInfo.name)
         return (
-            <div className="column">
-                <Modal 
-                    trigger={
-                        <div className="appliance">
-                            <ControlBaseComponent 
-                                title={this.props.appliance.name}
-                                status={switchToggleProp ? "On (Open)" : "Off (Closed)"}/>
+            <Modal 
+                trigger={
+                    <div className="appliance">
+                        <ControlBaseComponent 
+                            title={this.props.appliance.name}
+                            status={switchToggleProp ? "On (Open)" : "Off (Closed)"}/>
+                    </div>
+                } 
+                onClose={this.modalClose}
+                size="small"
+                closeIcon='close'>
+                <ApplianceHeader location={location} />
+                <Modal.Content>
+                    <div className="switchblock tac">
+                        <h1 className="switchblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
+                        <p className="setup--info">* On (Open) / Off (Closed)</p>
+                        <Checkbox
+                            onChange={this.onChange}
+                            defaultChecked={switchToggle}
+                            toggle 
+                            />
+                        <div className="switchblock--save setup--save">
+                            <Button 
+                                onClick={this.onSave}
+                                color="blue"
+                                inverted>
+                                Save
+                            </Button>
                         </div>
-                    } 
-                    onClose={this.modalClose}
-                    size="small"
-                    closeIcon='close'>
-                    <ApplianceHeader location={location} />
-                    <Modal.Content>
-                        <div className="switchblock tac">
-                            <h1 className="switchblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
-                            <p className="setup--info">* On (Open) / Off (Closed)</p>
-                            <Checkbox
-                                onChange={this.onChange}
-                                defaultChecked={switchToggle}
-                                toggle 
-                                />
-                            <div className="switchblock--save setup--save">
-                                <Button 
-                                    onClick={this.onSave}
-                                    color="blue"
-                                    inverted>
-                                    Save
-                                </Button>
-                            </div>
-                            {
-                                (this.state.isLoading)
-                                ? (
-                                    <div className="setup--loading">
-                                        <Loader inline="centered">Loading...</Loader>
-                                    </div>
-                                )
-                                :(
-                                    <p></p>
-                                )
-                            }
-                        </div>
-                    </Modal.Content>
-                </Modal>
-            </div>
+                        {
+                            (this.state.isLoading)
+                            ? (
+                                <div className="setup--loading">
+                                    <Loader inline="centered">Loading...</Loader>
+                                </div>
+                            )
+                            :(
+                                <p></p>
+                            )
+                        }
+                    </div>
+                </Modal.Content>
+            </Modal>
         )
     }
 };

@@ -69,54 +69,52 @@ class RangeComponent extends Component {
         const location = (typeof this.props.appliance.roomInfo === "undefined" ? "Home" : this.props.appliance.roomInfo.name);
         
         return (
-            <div className="column">
-                <Modal 
-                    trigger={
-                        <div className="appliance">
-                            <ControlBaseComponent 
-                                title={this.props.appliance.name}
-                                status={(rangeValue === 0 ? "Closed" : `${rangeValue}% Open`)}/>
-                        </div>
-                    } 
-                    size="small"
-                    onClose={this.modalClose}
-                    closeIcon='close'>
-                    <ApplianceHeader location={location} />
-                    <Modal.Content>
-                        <div className="rangeblock tac">
-                            <h1 className="rangeblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
-                            <Progress percent={this.state.percent} indicating progress />
+            <Modal 
+                trigger={
+                    <div className="appliance">
+                        <ControlBaseComponent 
+                            title={this.props.appliance.name}
+                            status={(rangeValue === 0 ? "Closed" : `${rangeValue}% Open`)}/>
+                    </div>
+                } 
+                size="small"
+                onClose={this.modalClose}
+                closeIcon='close'>
+                <ApplianceHeader location={location} />
+                <Modal.Content>
+                    <div className="rangeblock tac">
+                        <h1 className="rangeblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
+                        <Progress percent={this.state.percent} indicating progress />
+                        <Button 
+                            color="red" 
+                            inverted 
+                            onClick={this.onDecrement}>-</Button>
+                        <Button 
+                            color="green" 
+                            inverted 
+                            onClick={this.onIncrement}>+</Button>
+                        <div className="rangeblock--save setup--save">
                             <Button 
-                                color="red" 
-                                inverted 
-                                onClick={this.onDecrement}>-</Button>
-                            <Button 
-                                color="green" 
-                                inverted 
-                                onClick={this.onIncrement}>+</Button>
-                            <div className="rangeblock--save setup--save">
-                                <Button 
-                                    onClick={this.onSave}
-                                    color="blue"
-                                    inverted>
-                                    Save
-                                </Button>
-                            </div>
-                            {
-                                (this.state.isLoading)
-                                ? (
-                                    <div className="setup--loading">
-                                        <Loader inline="centered">Loading...</Loader>
-                                    </div>
-                                )
-                                :(
-                                    <p></p>
-                                )
-                            }
+                                onClick={this.onSave}
+                                color="blue"
+                                inverted>
+                                Save
+                            </Button>
                         </div>
-                    </Modal.Content>
-                </Modal>
-            </div>
+                        {
+                            (this.state.isLoading)
+                            ? (
+                                <div className="setup--loading">
+                                    <Loader inline="centered">Loading...</Loader>
+                                </div>
+                            )
+                            :(
+                                <p></p>
+                            )
+                        }
+                    </div>
+                </Modal.Content>
+            </Modal>
         )
     }
 };

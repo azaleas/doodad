@@ -98,76 +98,74 @@ class MachineComponent extends Component {
         const location = (typeof this.props.appliance.roomInfo === "undefined" ? "Home" : this.props.appliance.roomInfo.name);
         
         return (
-            <div className="column">
-                <Modal 
-                    trigger={
-                        <div className="appliance">
-                            <ControlBaseComponent 
-                                title={this.props.appliance.name}
-                                status={switchToggleProp ? `On (${modeProp} mode)` : "Off"}/>
+            <Modal 
+                trigger={
+                    <div className="appliance">
+                        <ControlBaseComponent 
+                            title={this.props.appliance.name}
+                            status={switchToggleProp ? `On (${modeProp} mode)` : "Off"}/>
+                    </div>
+                } 
+                size="small"
+                onClose={this.modalClose}
+                closeIcon='close'>
+                <ApplianceHeader location={location} />
+                <Modal.Content>
+                    <div className="machineblock tac">
+                        <h1 className="machineblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
+                        <p className="setup--info">*{`${this.props.appliance.name} can't change the mode once it's on. 
+                            Turn it off, save the state and turn it on again to adjust the mode. `}</p>
+                        <Checkbox
+                            onChange={this.onChange}
+                            defaultChecked={switchToggle}
+                            toggle 
+                            />
+                        {
+                            (this.state.modeState)
+                            ? (
+                                <div className="machineblock--select">
+                                    <br/>
+                                    <Dropdown 
+                                        selection 
+                                        onChange={this.onModeChange}
+                                        value={(!mode.length ? this.state.modeTypes[0] : mode)} 
+                                        options={this.state.modeTypes.map((el) => {
+                                            return (
+                                                {
+                                                    key: el,
+                                                    value: el,
+                                                    text: el.toUpperCase()
+                                                }
+                                            )    
+                                        })} />
+                                </div>
+                            )
+                            : (
+                                <p></p>
+                            )
+                        }
+                        <div className="machineblock--save setup--save">
+                            <Button 
+                                onClick={this.onSave}
+                                color="blue"
+                                inverted>
+                                Save
+                            </Button>
                         </div>
-                    } 
-                    size="small"
-                    onClose={this.modalClose}
-                    closeIcon='close'>
-                    <ApplianceHeader location={location} />
-                    <Modal.Content>
-                        <div className="machineblock tac">
-                            <h1 className="machineblock--title setup--title">{`Adjusting the ${this.props.appliance.name}`}</h1>
-                            <p className="setup--info">*{`${this.props.appliance.name} can't change the mode once it's on. 
-                                Turn it off, save the state and turn it on again to adjust the mode. `}</p>
-                            <Checkbox
-                                onChange={this.onChange}
-                                defaultChecked={switchToggle}
-                                toggle 
-                                />
-                            {
-                                (this.state.modeState)
-                                ? (
-                                    <div className="machineblock--select">
-                                        <br/>
-                                        <Dropdown 
-                                            selection 
-                                            onChange={this.onModeChange}
-                                            value={(!mode.length ? this.state.modeTypes[0] : mode)} 
-                                            options={this.state.modeTypes.map((el) => {
-                                                return (
-                                                    {
-                                                        key: el,
-                                                        value: el,
-                                                        text: el.toUpperCase()
-                                                    }
-                                                )    
-                                            })} />
-                                    </div>
-                                )
-                                : (
-                                    <p></p>
-                                )
-                            }
-                            <div className="machineblock--save setup--save">
-                                <Button 
-                                    onClick={this.onSave}
-                                    color="blue"
-                                    inverted>
-                                    Save
-                                </Button>
-                            </div>
-                            {
-                                (this.state.isLoading)
-                                ? (
-                                    <div className="setup--loading">
-                                        <Loader inline="centered">Loading...</Loader>
-                                    </div>
-                                )
-                                :(
-                                    <p></p>
-                                )
-                            }
-                        </div>
-                    </Modal.Content>
-                </Modal>
-            </div>
+                        {
+                            (this.state.isLoading)
+                            ? (
+                                <div className="setup--loading">
+                                    <Loader inline="centered">Loading...</Loader>
+                                </div>
+                            )
+                            :(
+                                <p></p>
+                            )
+                        }
+                    </div>
+                </Modal.Content>
+            </Modal>
         )
     }
 };

@@ -28,7 +28,7 @@ class AppliancesContainer extends Component {
     render() {
         const data = this.props.data;
         return (
-            <div className="ui centered three column stackable grid container">
+            <div className="ui centered stackable grid container">
                 {
                     data.map((el, index) =>{
                         if(el.id == this.state.data.id){
@@ -53,18 +53,25 @@ class AppliancesContainer extends Component {
                             */
                             const appliance = Object.assign({}, el, this.state.data);
                             return (
-                                <ApplianceComponent
+                                <div 
                                     key={index}
-                                    appliance={appliance}
-                                    onSave={this.onSave} />
+                                    className="sixteen wide mobile eight wide tablet eight wide computer five wide large screen column">
+                                    <ApplianceComponent
+                                        appliance={appliance}
+                                        onSave={this.onSave} />
+                                </div>
                             )
                         }
                         else{
                             return (
-                                <ApplianceComponent
+                                <div 
                                     key={index}
-                                    appliance={el}
-                                    onSave={this.onSave} />
+                                    className="sixteen wide mobile eight wide tablet eight wide computer five wide large screen column">
+                                    <ApplianceComponent
+                                        key={index}
+                                        appliance={el}
+                                        onSave={this.onSave} />
+                                </div>
                             )
                         }
                     })

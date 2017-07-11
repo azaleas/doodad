@@ -61,7 +61,10 @@ class HomeContainer extends Component {
                 <Redirect to="/" />
             )
             :(
-                <div className="ui centered three column stackable grid container">
+                <div className="ui centered stackable grid container">
+                <div className="row">
+                    <h1 className="tac">Home</h1>
+                </div>
                 {
                     (data.length)
                     ? (
@@ -88,18 +91,24 @@ class HomeContainer extends Component {
                                 */
                                 const appliance = Object.assign({}, el, this.state.data);
                                 return (
-                                    <ApplianceComponent
+                                    <div 
                                         key={index}
-                                        appliance={appliance}
-                                        onSave={this.onSave} />
+                                        className="sixteen wide mobile eight wide tablet eight wide computer five wide large screen column">
+                                        <ApplianceComponent
+                                            appliance={appliance}
+                                            onSave={this.onSave} />
+                                    </div>
                                 )
                             }
                             else{
                                 return (
-                                    <ApplianceComponent
+                                    <div 
                                         key={index}
-                                        appliance={el}
-                                        onSave={this.onSave} />
+                                        className="sixteen wide mobile eight wide tablet eight wide computer five wide large screen column">
+                                        <ApplianceComponent
+                                            appliance={el}
+                                            onSave={this.onSave} />
+                                    </div>
                                 )
                             }
                         })
