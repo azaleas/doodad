@@ -93,7 +93,7 @@ class HomeContainer extends Component {
                                 return (
                                     <div 
                                         key={index}
-                                        className="sixteen wide mobile eight wide tablet eight wide computer five wide large screen column">
+                                        className="eight wide computer five wide large screen five wide widescreen column">
                                         <ApplianceComponent
                                             appliance={appliance}
                                             onSave={this.onSave} />
@@ -104,7 +104,7 @@ class HomeContainer extends Component {
                                 return (
                                     <div 
                                         key={index}
-                                        className="sixteen wide mobile eight wide tablet eight wide computer five wide large screen column">
+                                        className="eight wide computer five wide large screen five wide widescreen column">
                                         <ApplianceComponent
                                             appliance={el}
                                             onSave={this.onSave} />

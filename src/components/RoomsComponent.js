@@ -12,7 +12,7 @@ const RoomsComponent = (props) => {
             {
                 props.data.map((el, index) => (
                     <div 
-                        className="sixteen wide mobile eight wide tablet eight wide computer five wide large screen column" 
+                        className="eight wide computer five wide large screen five wide widescreen column" 
                         key={el.id}>
                         <Link 
                             className="rooms tac"
