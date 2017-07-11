@@ -26,7 +26,6 @@ class RoomContainer extends Component {
         const pathname = window.location.pathname;
         const roomsRegExp = /\/rooms\/(\d+)$/;
         const roomId = pathname.match(roomsRegExp)[1];
-        console.log(roomId);
         if(roomId){
             this.fetchRoomData(roomId);
         }
