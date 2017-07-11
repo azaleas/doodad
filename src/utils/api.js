@@ -6,6 +6,10 @@ const config = {
     headers: {"content-type": "application/json"},
 };
 
+const alertErrorMessage = (err) => {
+    alert(`${err}\nWe are trying to solve the issue.\nPlease try again Later.`);
+}
+
 const api = {
     
     fetchHomeAppliances(){
@@ -13,6 +17,7 @@ const api = {
         return axios.get(URL)
             .then((response) => response.data)
             .catch(function(err){
+                alertErrorMessage(err);
                 console.warn("Error in fetchHomeAppliances", err);
             })
     },
@@ -22,6 +27,7 @@ const api = {
         return axios.get(URL)
             .then((response) => response.data)
             .catch(function(err){
+                alertErrorMessage(err);
                 console.warn("Error in fetchRoomsData", err);
             })
     },
@@ -96,6 +102,23 @@ const api = {
 
     createHomeAppliance(data){
         const URL = `${API_STEM}/home`;
+        
+        return axios.post(
+                URL,
+                {
+                    "name": data.name,
+                    "data": data.data,
+                },
+                config
+            )
+        .then((response) => response.data)
+        .catch(function(err){
+            console.warn("Error in createHomeAppliance", err);
+        })      
+    },
+
+    createRoomAppliance(data, roomId){
+        const URL = `${API_STEM}/rooms/${roomId}/appliances`;
         
         return axios.post(
                 URL,
