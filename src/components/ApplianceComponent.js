@@ -48,7 +48,7 @@ const ApplianceComponent = (props) => {
                 modes={["delicate", "cotton", "eco", "fast 30"]} />
         )
     }
-    else if(props.appliance.data.type === "dishwasher-sswitch"){
+    else if(props.appliance.data.type === "dishwasher-switch"){
         return (
             <MachineComponent 
                 appliance={props.appliance}

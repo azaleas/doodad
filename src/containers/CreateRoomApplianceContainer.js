@@ -147,7 +147,7 @@ class CreateRoomApplianceContainer extends Component {
         return (
             (this.state.redirect)
             ?(
-                <Redirect push to={`/rooms/${this.props.roomId}`} />
+                <Redirect to={`/rooms/${this.props.roomId}`} />
             )
             :(
                 <div className="create-homeappliance">

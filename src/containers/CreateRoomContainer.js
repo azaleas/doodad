@@ -54,6 +54,7 @@ class CreateRoomContainer extends Component {
                 if(typeof response !== "undefined"){
                     this.setState({
                         roomId: response.id,
+                        title: '',
                         redirect: true,
                     })
                 }

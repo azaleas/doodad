@@ -19,15 +19,20 @@ class RoomContainer extends Component {
     }
 
     componentWillMount(){
-        this.fetchRoomData();
+        this.fetchRoomData(this.props.match.params.roomId);
     }
 
     componentWillReceiveProps(){
-        this.fetchRoomData();
+        const pathname = window.location.pathname;
+        const roomsRegExp = /\/rooms\/(\d+)$/;
+        const roomId = pathname.match(roomsRegExp)[1];
+        console.log(roomId);
+        if(roomId){
+            this.fetchRoomData(roomId);
+        }
     }
 
-    fetchRoomData(){
-        const roomId = this.props.match.params.roomId;
+    fetchRoomData(roomId){
         api.fetchRoomApplianceData(roomId)
             .then((roomData) => {
                 if(typeof roomData !== "undefined"){
