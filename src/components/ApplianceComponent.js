@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SwitchComponent from './SwitchComponent';
-import MachineComponent from './MachineComponent';
-import RangeComponent from './RangeComponent';
-import TemperatureComponent from './TemperatureComponent';
+import SwitchComponent from './appliances/SwitchComponent';
+import MachineComponent from './appliances/MachineComponent';
+import RangeComponent from './appliances/RangeComponent';
+import TemperatureComponent from './appliances/TemperatureComponent';
 
 const ApplianceComponent = (props) => {
     console.log(props.appliance);
