@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Redirect from 'react-router-dom/Redirect';
+
 import api from './../utils/api';
 
 import RoomsComponent from './../components/RoomsComponent';
@@ -11,23 +13,37 @@ class RoomsContainer extends Component {
         super(props);
         this.state = {
             roomsData: [],
+            redirect: false,
         };
     }
 
     componentDidMount(){
         api.fetchRoomsData()
             .then((roomsData) => {
-                this.setState({
-                    roomsData,
-                });
+                if(typeof roomsData !== 'undefined'){
+                    this.setState({
+                        roomsData,
+                    });
+                }
+                else{
+                    this.setState({
+                        redirect: true,
+                    })
+                }
             });
     }
 
     render() {
         return (
-            <RoomsComponent 
-                data={this.state.roomsData}
-                path={this.props.location.pathname}/>
+            (this.state.redirect)
+            ?(
+                <Redirect to="/" />
+            )
+            :(
+                <RoomsComponent 
+                    data={this.state.roomsData}
+                    path={this.props.location.pathname}/>
+            )
         );
     }
 }

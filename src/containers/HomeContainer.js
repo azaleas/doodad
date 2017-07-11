@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Redirect from 'react-router-dom/Redirect';
+
 import api from './../utils/api';
 
 import ApplianceComponent from './../components/ApplianceComponent';
@@ -12,6 +14,7 @@ class HomeContainer extends Component {
         this.state = {
             data: {},
             dataUpdated: {},
+            redirect: false,
         }
     }
 
@@ -26,16 +29,22 @@ class HomeContainer extends Component {
     fetchAppliances(){
         api.fetchHomeAppliances()
             .then((response) => {
-                this.setState({
-                    data: response,
-                });
+                if(typeof response !== "undefined"){
+                    this.setState({
+                        data: response,
+                    });
+                }
+                else{
+                    this.setState({
+                        redirect: true,
+                    })
+                }
             })
     }
 
     onSave = (dataObject, applianceId) => {
         api.updateHomeAppliance(dataObject, applianceId)
             .then((response) => {
-                console.log(response);
                 if(response.data){
                     this.setState({
                         dataUpdated: response,
@@ -47,7 +56,12 @@ class HomeContainer extends Component {
     render() {
         const data = this.state.data;
         return (
-            <div className="ui centered three column stackable grid container">
+            (this.state.redirect)
+            ?(
+                <Redirect to="/" />
+            )
+            :(
+                <div className="ui centered three column stackable grid container">
                 {
                     (data.length)
                     ? (
@@ -92,7 +106,8 @@ class HomeContainer extends Component {
                     )
                     :(<p></p>)
                 }
-            </div>
+                </div>
+            )
         );
     }
 }

@@ -5,20 +5,18 @@ import Link from 'react-router-dom/Link';
 
 const RoomsComponent = (props) => {
     return (
-        <div className="ui container">
-            <div className="ui centered three column stackable grid">
-                {
-                    props.data.map((el, index) => (
-                        <div className="column" key={el.id}>
-                            <Link 
-                                className="rooms tac"
-                                to={`${props.path}/${el.id}`}>
-                                <h1 className="rooms--name">{el.name}</h1>
-                            </Link>
-                        </div>
-                    ))
-                }
-            </div>
+        <div className="ui centered three column stackable grid">
+            {
+                props.data.map((el, index) => (
+                    <div className="column" key={el.id}>
+                        <Link 
+                            className="rooms tac"
+                            to={`${props.path}/${el.id}`}>
+                            <h1 className="rooms--name">{el.name}</h1>
+                        </Link>
+                    </div>
+                ))
+            }
         </div>
     );
 };

@@ -19,6 +19,12 @@ class CreateRoomContainer extends Component {
         }
     }
 
+    componentWillReceiveProps(){
+        this.setState({
+            redirect: false,
+        })
+    }
+
     onTitleChange = (event) => {
         this.setState({
             title: event.target.value  
@@ -45,10 +51,17 @@ class CreateRoomContainer extends Component {
 
         api.createRoom(this.state.title)
             .then((response) => {
-                this.setState({
-                    roomId: response.id,
-                    redirect: true,
-                })
+                if(typeof response !== "undefined"){
+                    this.setState({
+                        roomId: response.id,
+                        redirect: true,
+                    })
+                }
+                else{
+                    this.setState({
+                        redirect: true,
+                    })
+                }
             })
 
     }
