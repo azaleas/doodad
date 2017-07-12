@@ -40,14 +40,13 @@ class SwitchComponent extends Component {
     modalClose = (event, object) => {
         if(!this.state.saving){
             this.setState({
-                mode: this.state.modeInitial,
                 switchToggle: this.state.switchToggleInitial,
             });
         }
     }
 
     onSave = (event, object) => {
-        if(this.state.switchToggle !== this.props.appliance.data.value){
+        if(this.state.switchToggle !== this.state.switchToggleInitial){
             const data = Object.assign({}, this.props.appliance.data)
             data.value = this.state.switchToggle;
             this.props.onSave(data, this.props.appliance.id, this.props.appliance.roomId);
