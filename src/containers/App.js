@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 
-import MainContainer from './MainContainer';
+import MainComponent from './../components/MainComponent';
 import HomeContainer from './HomeContainer';
 import RoomsContainer from './RoomsContainer';
 import RoomContainer from './RoomContainer';
@@ -20,7 +20,7 @@ class App extends Component {
         <div className="app ui container">
             <Header/>
             <Switch>
-                <Route exact path="/" component={MainContainer} />
+                <Route exact path="/" component={MainComponent} />
                 <Route exact path="/home" component={HomeContainer} />
                 <Route exact path="/rooms" component={RoomsContainer} />
                 <Route exact path="/rooms/:roomId" component={RoomContainer} />
