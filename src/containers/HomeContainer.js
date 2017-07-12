@@ -94,7 +94,7 @@ class HomeContainer extends Component {
                                         Thus, in props we will have the initially received data from the server.
 
                                 */
-                                const appliance = Object.assign({}, el, this.state.data);
+                                const appliance = Object.assign({}, el, this.state.dataUpdated);
                                 return (
                                     <div 
                                         key={index}
