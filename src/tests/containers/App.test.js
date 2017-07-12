@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 
 import App from './../../containers/App';
 
-it('renders without crashing', () => {
+describe('App', () => {
     let wrapper;
 
     beforeEach(() => {
@@ -18,5 +18,5 @@ it('renders without crashing', () => {
         expect(
             wrapper.find('Header').exists()
         ).toBe(true);
-    })
+    });
 });
