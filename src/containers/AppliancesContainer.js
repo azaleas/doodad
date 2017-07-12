@@ -10,7 +10,7 @@ class AppliancesContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: {},
+            dataUpdated: {},
         }
     }
 
@@ -19,7 +19,7 @@ class AppliancesContainer extends Component {
             .then((response) => {
                 if(response.data){
                     this.setState({
-                        data: response,
+                        dataUpdated: response,
                     })
                 }
             })
@@ -31,7 +31,7 @@ class AppliancesContainer extends Component {
             <div className="ui centered stackable grid container">
                 {
                     data.map((el, index) =>{
-                        if(el.id == this.state.data.id){
+                        if(el.id == this.state.dataUpdated.id){
                             /*Update the appliance with put request response.
                               !!!Important note: Given that the update is 
                                     happening on object element, components should use initial props
@@ -51,7 +51,7 @@ class AppliancesContainer extends Component {
                                     Thus, in props we will have the initially received data from the server.
 
                             */
-                            const appliance = Object.assign({}, el, this.state.data);
+                            const appliance = Object.assign({}, el, this.state.dataUpdated);
                             return (
                                 <div 
                                     key={index}
@@ -68,7 +68,6 @@ class AppliancesContainer extends Component {
                                     key={index}
                                     className="eight wide computer five wide large screen five wide widescreen column">
                                     <ApplianceComponent
-                                        key={index}
                                         appliance={el}
                                         onSave={this.onSave} />
                                 </div>
