@@ -101,6 +101,41 @@ const mockData = {
             "value": false
         }
     },
+
+    applianceRangeData: {
+        id: "2",
+        roomId: "1",
+        createdAt: 1499582766,
+        name: "Window 1",
+        data: {
+            type: "range",
+            value: 30
+        }
+    },
+
+    applianceTemperatureData: {
+        id: "6",
+        roomId: "1",
+        createdAt: 1499582526,
+        name: "Room Temperature",
+        data: {
+            type: "room-temperature",
+            value: "25",
+            degrees: "C"
+        }
+    },
+
+    applianceMachineData: {
+        id: "38",
+        roomId: "8",
+        createdAt: 1499581367,
+        name: "Washing Machine",
+        data: {
+            type: "washingmachine-switch",
+            value: true,
+            mode: "eco"
+        }
+    },
 };
 
 export default mockData;

@@ -45,7 +45,7 @@ class RangeComponent extends Component {
     }
 
     onSave = (event, object) => {
-        if(this.state.percent !== Number(this.props.appliance.data.value)){
+        if(this.state.percent !== this.state.rangeValue){
             const data = Object.assign({}, this.props.appliance.data)
             data.value = this.state.percent;
             this.props.onSave(data, this.props.appliance.id, this.props.appliance.roomId);
