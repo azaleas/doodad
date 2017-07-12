@@ -23,6 +23,11 @@ class HomeContainer extends Component {
     }
 
     componentWillReceiveProps(){
+        /*
+            Updates the list, once a new home appliance is created.
+            It gets triggered once a redirect comes 
+            from CreateHomeApplianceComponent.
+        */
         this.fetchAppliances();
     }
 
