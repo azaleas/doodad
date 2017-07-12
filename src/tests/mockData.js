@@ -56,7 +56,51 @@ const mockData = {
         "createdAt": 1499582718,
         "name": "Parent Bedroom"
       }
-    ]
+    ],
+
+    roomApplianceData: [
+        {
+            id: "1",
+            roomId: "1",
+            createdAt: 1499582826,
+            name: "Lights",
+            data: {
+                type: "switch",
+                value: true
+            },
+            roomInfo: {
+                id: "1",
+                createdAt: 1499582838,
+                name: "Living Room"
+            }
+        },
+        {
+            id: "2",
+            roomId: "1",
+            createdAt: 1499582766,
+            name: "Window 1",
+            data: {
+                type: "range",
+                value: 30
+            },
+            roomInfo: {
+                id: "1",
+                createdAt: 1499582838,
+                name: "Living Room"
+            }
+        }
+    ],
+
+    applianceUpdateData: {
+        "id": "1",
+        "roomId": "1",
+        "createdAt": 1499582826,
+        "name": "Lights",
+        "data": {
+            "type": "switch",
+            "value": false
+        }
+    },
 };
 
 export default mockData;
