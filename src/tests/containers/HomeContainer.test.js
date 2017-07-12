@@ -5,49 +5,13 @@ import HomeContainer from './../../containers/HomeContainer';
 
 import api from './../../utils/api';
 
+import mockData from './../mockData';
+
+const mock_data = mockData.homeData;
+
+const mock_updated_data = mockData.updateHomeData;
+
 // jest.mock('./../../utils/api');
-
-const mock_data = [
-  {
-    "id": "1",
-    "createdAt": 1499588798,
-    "name": "Home Alarm",
-    "data": {
-      "type": "switch",
-      "value": false
-    }
-  },
-  {
-    "id": "2",
-    "createdAt": 1499588738,
-    "name": "Swimming Pool Temperature",
-    "data": {
-      "type": "pool-temperature",
-      "value": "93",
-      "degrees": "F"
-    }
-  },
-  {
-    "id": "3",
-    "createdAt": 1499588678,
-    "name": "Swimming Pool Cover",
-    "data": {
-      "type": "switch",
-      "value": false
-    }
-  }
-];
-
-const mock_updated_data = {
-    "id": "1",
-    "createdAt": 1499588798,
-    "name": "Home Alarm",
-    "data": {
-        "type": "switch",
-        "value": true
-    }
-};
-
 
 jest.mock('./../../utils/api', () => ({
     fetchHomeAppliances: jest.fn(() => Promise.resolve(mock_data)),
