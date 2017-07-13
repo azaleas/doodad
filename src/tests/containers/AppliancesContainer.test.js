@@ -40,7 +40,7 @@ describe('AppliancesContainer', () => {
                 .then((response) => {
                     expect(response).toEqual(mock_applianceupdate);
                     expect(
-                        wrapper.state().data
+                        wrapper.state().dataUpdated
                     ).toEqual(mock_applianceupdate);
                 })
     });
