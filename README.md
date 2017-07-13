@@ -82,11 +82,17 @@ Currently, there are 4 base appliances created: Switch, Range, Temperature and M
 
 Depending on the needs and new appliances sent by the server, new base appliances can be created in this folder ***(copying and modifying an existing base appliance will be better)***. Base appliances share the same design structure and logic. They present the appliance data (value and modes) and collect the updated values and create the new data object with these values, to send to the server.
 
-To create appliances for home(outside) or room(inside), 'typesData' file was created (located at '/src/utils' folder). This file presents the appliance description and default values. So, when user clicks on 'add new>room appliance', user is presented with a modal form, which gets it's data from 'typesData' file. Appliance types and subtypes are presented as dropdown lists. Once user fills in the form, a data object is created which contains the title of the appliance and the data properties(like type and value of appliance). This object is sent to the server. 
+To create appliances for home(outside) or room(inside),  'typesData' file was created (located at '/src/utils' folder). This file presents the appliance description and default values. So, when user clicks on 'add new>room appliance', user is presented with a modal form, which gets it's data from 'typesData' file. Appliance types and subtypes are presented as dropdown lists. Once user fills in the form, a data object is created which contains the title of the appliance and the data properties(like type and value of appliance). This object is sent to the server. 
 
 Both create appliances and rooms have a client side form validation.
 
 ----------
 
 #### Tests:
- Located at '/src/tests' folder. This folder tries to keep the same file structure for containers and component. API calls were mocked with Jest. 'mockData' file contains the possible responses from the server.
+Located at '/src/tests' folder. This folder tries to keep the same file structure for containers and component. API calls were mocked with Jest. 'mockData' file contains the possible responses from the server.
+
+App was tested on browsers: 
+ - Chrome
+ - Firefox
+ - YandexBrowser
+ - Opera
