@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import CreateApplianceContainer from './../../containers/CreateApplianceContainer';
 
-const CreateRoomApplianceContainer = (props) => {
+const CreateRoomApplianceComponent = (props) => {
     return (
         <CreateApplianceContainer
             title="Room"
@@ -11,9 +11,9 @@ const CreateRoomApplianceContainer = (props) => {
     );
 };
 
-CreateRoomApplianceContainer.propTypes = {
+CreateRoomApplianceComponent.propTypes = {
     className: PropTypes.string,
     roomId: PropTypes.number,
 };
 
-export default CreateRoomApplianceContainer;
+export default CreateRoomApplianceComponent;
