@@ -25,7 +25,7 @@ Given that the demo is located at aerobatic and uses https and mockAPI's https c
 
  - visit https://5961ca8d8492d90011f12d01.mockapi.io
  - On firefox: click **Advanced**, then **Add Exception**, then **Confirm**
- - On chrome: click **Advamced**, then **Proceed to ...** 
+ - On chrome: click **Advanced**, then **Proceed to ...** 
  - On opera: click **Continue Anyway**
 
  After that, you can proceed with the demo at: https://doodad.aerobatic.io 
