@@ -38,7 +38,7 @@ class MachineComponent extends Component {
             isLoading: false,
             modeInitial: this.state.mode,
             switchToggleInitial: this.state.switchToggle,
-            modeState: (this.state.switchToggle ? true : false)
+            modeState: this.state.switchToggle,
         })
     }
 
@@ -47,7 +47,7 @@ class MachineComponent extends Component {
             this.setState({
                 mode: this.state.modeInitial,
                 switchToggle: this.state.switchToggleInitial,
-                modeState: (this.state.switchToggleInitial ? true : false)
+                modeState: this.state.switchToggleInitial,
             });
         }
     }
