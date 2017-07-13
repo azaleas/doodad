@@ -136,6 +136,27 @@ const mockData = {
             mode: "eco"
         }
     },
+
+    roomApplianceCreateData: {
+        "id": "1",
+        "roomId": "1",
+        "createdAt": 1499582826,
+        "name": "Lights",
+        "data": {
+            "type": "switch",
+            "value": false
+        }
+    },
+
+    homeApplianceCreateData: {
+        "id": "1",
+        "createdAt": 1499588798,
+        "name": "Home Alarm",
+        "data": {
+            "type": "switch",
+            "value": false
+        }
+    },
 };
 
 export default mockData;
