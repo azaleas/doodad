@@ -6,6 +6,12 @@ import { Progress, Button, Modal, Loader } from 'semantic-ui-react';
 import ControlBaseComponent from './ControlBaseComponent';
 import ApplianceHeader from './ApplianceHeader';
 
+/*
+    Base range component. Can be used for
+    appliances that will have a range. For example curtains,
+    that might be fully open, fully close or half open/close
+*/
+
 class RangeComponent extends Component {
     constructor(props) {
         super(props);

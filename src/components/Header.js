@@ -8,6 +8,12 @@ import CreateHomeApplianceComponent from './../components/create_appliance/Creat
 import CreateRoomApplianceComponent from './../components/create_appliance/CreateRoomApplianceComponent';
 import HeaderTitleComponent from './HeaderTitleComponent';
 
+/*
+    This component renders the header component.
+    Depending on the given pathname it renders different
+    options for "add new" dropdown.
+*/
+
 const Header = (props) => {
     const pathname = window.location.pathname;
     const roomsRegExp = /\/rooms\/(\d+)$/;

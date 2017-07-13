@@ -7,6 +7,11 @@ import api from './../utils/api';
 
 import RoomsComponent from './../components/RoomsComponent';
 
+/*
+    This component fetches the rooms list from the API
+    and uses "RoomsComponent" to render the results.
+*/
+
 class RoomsContainer extends Component {
     
     constructor(props) {

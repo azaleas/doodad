@@ -7,7 +7,12 @@ import ControlBaseComponent from './ControlBaseComponent';
 import ApplianceHeader from './ApplianceHeader';
 
 
-/*Default component for Dishwasher and Washing Machine*/
+/*
+    Base machine component. Can be used for
+    dishwashers or washing machines. It receives the modes 
+    data as props. For example, for washing machine, it receives
+    ["delicate", "cotton", "eco", "fast 30"] modes.
+*/
 class MachineComponent extends Component {
     constructor(props) {
         super(props);

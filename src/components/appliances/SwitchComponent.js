@@ -6,6 +6,11 @@ import { Checkbox, Button, Modal, Loader } from 'semantic-ui-react';
 import ControlBaseComponent from './ControlBaseComponent';
 import ApplianceHeader from './ApplianceHeader';
 
+/*
+    Base switch component. Can be used for
+    on/off, open/closed, enable/disable functionality.
+*/
+
 class SwitchComponent extends Component {
     constructor(props) {
         super(props);

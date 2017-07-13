@@ -6,6 +6,14 @@ const config = {
     headers: {"content-type": "application/json"},
 };
 
+
+/*
+    Alert message, that is fired when the server doesnt 
+    return any data for the given endpoint. 
+    mockAPI was down couple of times while this app was developed.
+    As a quick fix, this alert message was introduced.
+    After the alert message, user is redirected to the Main page.
+*/
 const alertErrorMessage = (err) => {
     alert(`${err}\nWe are trying to solve the issue.\nPlease try again Later.`);
 }

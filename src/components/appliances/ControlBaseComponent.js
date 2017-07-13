@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/*
+    Base component for base appliances.
+    It renders the title of the given appliance
+    and the Current status.
+*/
+
 const ControlBaseComponent = (props) => {
     return (
         <div className="appliance-base">

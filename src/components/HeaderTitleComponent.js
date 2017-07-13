@@ -4,6 +4,9 @@ import Link from 'react-router-dom/Link';
 
 import { Dropdown, Menu } from 'semantic-ui-react'
 
+/*
+    This component renders the header navigation menu.
+*/
 
 const HeaderTitleComponent = (props) => {
     return (

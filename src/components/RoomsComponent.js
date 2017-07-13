@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 
 import Link from 'react-router-dom/Link';
 
+/*
+    This component craetes the links to individual rooms.
+    Router then renders RoomContainer with given roomId.
+*/
+
 const RoomsComponent = (props) => {
     return (
         <div className="ui centered stackable grid">
@@ -16,6 +21,7 @@ const RoomsComponent = (props) => {
                         key={el.id}>
                         <Link 
                             className="rooms tac"
+                            /*to="rooms/:roomId"*/
                             to={`${props.path}/${el.id}`}>
                             <h1 className="rooms--name">{el.name}</h1>
                         </Link>

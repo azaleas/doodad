@@ -7,6 +7,10 @@ import { Modal } from 'semantic-ui-react';
 
 import api from './../utils/api';
 
+/*
+    This component renders the create new room modal.
+*/
+
 class CreateRoomContainer extends Component {
 
     constructor(props) {

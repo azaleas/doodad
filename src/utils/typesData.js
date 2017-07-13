@@ -1,3 +1,18 @@
+/*
+    This data is used to create the 
+    options for create appliance form.
+    It uses base appliances as properties.
+
+    So, if new base appliance gets created, 
+    it has to be added here as a property with 
+    a definition and default values.
+
+    Some components are used for multiple appliances.
+    Like base temperature appliance is used for room temperature
+    and water temperature. This sub types must be specified here as well.
+    
+*/
+
 const types = {
     switch: {
         definition: 'Switch (Lights, Doors, etc.)',

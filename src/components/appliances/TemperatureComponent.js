@@ -6,6 +6,13 @@ import { Button, Modal, Dropdown, Loader } from 'semantic-ui-react';
 import ControlBaseComponent from './ControlBaseComponent';
 import ApplianceHeader from './ApplianceHeader';
 
+/*
+    Base temperature component. It receives
+    min and max values for the temperature as a prop.
+    For example the Room temperature has min=16 and max=40 (in C).
+    It also has a switch to change between degrees for C and F.
+*/
+
 class TemperatureComponent extends Component {
     constructor(props) {
         super(props);

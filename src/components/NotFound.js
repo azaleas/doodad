@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import Link from 'react-router-dom/Link';
 
+/*
+    404 Component.
+*/
+
 const NotFound = ({ className }) => {
     return (
        <div className="block404">

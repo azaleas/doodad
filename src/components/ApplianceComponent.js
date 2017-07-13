@@ -6,6 +6,16 @@ import MachineComponent from './appliances/MachineComponent';
 import RangeComponent from './appliances/RangeComponent';
 import TemperatureComponent from './appliances/TemperatureComponent';
 
+/*
+    This component acts as a switch, that chooses which base 
+    appliance component needs to be rendered, depending on 
+    received data/appliance type.
+    It also connects the parent component that sends 
+    the PUT request to update the data, and the base appliance
+    component that creates the data object (with updated values), 
+    that needs to be sended to the API.
+*/
+
 const ApplianceComponent = (props) => {
     if(props.appliance.data.type === "switch"){
         return (

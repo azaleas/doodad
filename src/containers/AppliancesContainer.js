@@ -5,6 +5,12 @@ import api from './../utils/api';
 
 import ApplianceComponent from './../components/ApplianceComponent';
 
+/*
+    This component gets the data as props
+    and uses "ApplianceComponent" to render the results.
+    It's also responsible to update the appliance data.
+*/
+
 class AppliancesContainer extends Component {
     
     constructor(props) {

@@ -14,6 +14,11 @@ import Header from './../components/Header';
 
 import './../styles/App.css';
 
+/*
+    Root Component. Renders the global header and
+    the routed component depending on the browser path.
+*/
+
 class App extends Component {
   render() {
     return (

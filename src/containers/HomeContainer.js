@@ -7,6 +7,11 @@ import api from './../utils/api';
 
 import ApplianceComponent from './../components/ApplianceComponent';
 
+/*
+    This component fetches the home appliances from the API
+    and uses "ApplianceComponent" to render the results.
+*/
+
 class HomeContainer extends Component {
     
     constructor(props) {
@@ -26,7 +31,7 @@ class HomeContainer extends Component {
         /*
             Updates the list, once a new home appliance is created.
             It gets triggered once a redirect comes 
-            from CreateHomeApplianceComponent.
+            from CreateApplianceContainer.
         */
         this.fetchAppliances();
     }
