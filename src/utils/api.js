@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-const API_STEM = 'http://5961ca8d8492d90011f12d01.mockapi.io/doodad';
+const http_scheme = window.location.protocol === 'https:' ? 'https' : 'http';
+
+const API_STEM = `${http_scheme}://5961ca8d8492d90011f12d01.mockapi.io/doodad`;
 
 const config = {
     headers: {"content-type": "application/json"},
 };
-
 
 /*
     Alert message, that is fired when the server doesnt 
