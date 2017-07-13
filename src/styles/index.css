@@ -5,6 +5,10 @@ body {
     font-size: 16px;
 }
 
+/*
+    Override Lato font from Semantic UI
+*/
+
 h1, h2, h3, h4, h5, p, a, span, div, input, button {
     font-family: 'Quicksand', sans-serif !important;
 }
