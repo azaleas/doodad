@@ -7,6 +7,7 @@ Built with:
  - **react-router** (for routing)
  - **axios** (for API interaction)
  - **Semantic UI** (for fast prototyping)
+ - **[mockAPI](http://www.mockapi.io)** (to mock the API)
 
 ----------
 
@@ -17,6 +18,18 @@ Built with:
  - Run **npm start** to start the local development server.
  - To create a build version of the app, run **npm run build**. This will create a build folder, ready for deployment.
  - To run the tests, run **npm test**
+
+#### Demo:
+
+Given that the demo is located at aerobatic and uses https and mockAPI's https certificate expired on July 11, 2017, please first add **https://5961ca8d8492d90011f12d01.mockapi.io** to exceptions. To do that:
+
+ - visit https://5961ca8d8492d90011f12d01.mockapi.io
+ - On firefox: click **Advanced**, then **Add Exception**, then **Confirm**
+ - On chrome: click **Advamced**, then **Proceed to ...** 
+ - On opera: click **Continue Anyway**
+
+ After that, you can proceed with the demo at: https://doodad.aerobatic.io 
+ 
 
 #### Constraints & User Stories:
 
@@ -94,5 +107,5 @@ Located at '/src/tests' folder. This folder tries to keep the same file structur
 App was tested on browsers: 
  - Chrome
  - Firefox
- - YandexBrowser
  - Opera
+ - YandexBrowser
