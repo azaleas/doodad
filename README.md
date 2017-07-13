@@ -101,6 +101,10 @@ Both create appliances and rooms have a client side form validation.
 
 ----------
 
+#### API:
+
+For API endpoints, check out API.md file.
+
 #### Tests:
 Located at '/src/tests' folder. This folder tries to keep the same file structure for containers and component. API calls were mocked with Jest. 'mockData' file contains the possible responses from the server.
 
