@@ -32,6 +32,7 @@ class MachineComponent extends Component {
         this.setState({
             switchToggle:this.props.appliance.data.value,
             switchToggleInitial:this.props.appliance.data.value,
+            modeState:this.props.appliance.data.value,
             mode: this.props.appliance.data.mode,
             modeInitial: this.props.appliance.data.mode,
             modeTypes: this.props.modes,
