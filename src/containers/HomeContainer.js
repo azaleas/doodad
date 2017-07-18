@@ -32,6 +32,8 @@ class HomeContainer extends Component {
             Updates the list, once a new home appliance is created.
             It gets triggered once a redirect comes 
             from CreateApplianceContainer.
+            Redirect updates bunch of 
+            routing props(props.history, props.location etc)
         */
         this.fetchAppliances();
     }
@@ -72,59 +74,65 @@ class HomeContainer extends Component {
             )
             :(
                 <div className="ui centered stackable grid container">
-                <div className="row">
-                    <h1 className="tac">Home</h1>
-                </div>
-                {
-                    (data.length)
-                    ? (
-                        data.map((el, index) =>{
-                            if(el.id == this.state.dataUpdated.id){
-                                /*Update the appliance with put request response.
-                                  !!!Important note: Given that the update is 
-                                        happening on object element, components should use initial props
-                                        to update the status of the component.
-                                        Example from RangeComponent:
+                    <div className="row">
+                        <h1 className="tac">Home</h1>
+                    </div>
+                    {
+                        (data.length)
+                        ? (
+                            data.map((el, index) =>{
+                                if(el.id == this.state.dataUpdated.id){
+                                    /*Update the appliance with put request response.
+                                      !!!Important note: Given that the update is 
+                                            happening on object element, components should use initial props
+                                            to update the status of the component.
+                                            Example from RangeComponent:
 
-                                        componentWillReceiveProps(nextProps){
-                                            this.setState({
-                                                isLoading: false,
-                                                saving: false,
-                                                rangeValue: this.state.percent,
-                                            })
-                                        }
+                                            componentWillReceiveProps(nextProps){
+                                                this.setState({
+                                                    isLoading: false,
+                                                    saving: false,
+                                                    rangeValue: this.state.percent,
+                                                })
+                                            }
 
-                                        Here, rangeValue can't be updated with newly received props, 
-                                        because below, we are only updating one element of the object.
-                                        Thus, in props we will have the initially received data from the server.
+                                            Here, rangeValue can't be updated with newly received props, 
+                                            because below, we are only updating one element of the object.
+                                            Thus, in props we will have the initially received data from the server.
 
-                                */
-                                const appliance = Object.assign({}, el, this.state.dataUpdated);
-                                return (
-                                    <div 
-                                        key={index}
-                                        className="eight wide computer five wide large screen five wide widescreen column">
-                                        <ApplianceComponent
-                                            appliance={appliance}
-                                            onSave={this.onSave} />
-                                    </div>
-                                )
-                            }
-                            else{
-                                return (
-                                    <div 
-                                        key={index}
-                                        className="eight wide computer five wide large screen five wide widescreen column">
-                                        <ApplianceComponent
-                                            appliance={el}
-                                            onSave={this.onSave} />
-                                    </div>
-                                )
-                            }
-                        })
-                    )
-                    :(<p></p>)
-                }
+                                    */
+                                    
+                                    /*
+                                        Initial:
+                                        const appliance = Object.assign({}, el, this.state.dataUpdated);
+                                    */
+                                    
+                                    const appliance = this.state.dataUpdated;
+                                    return (
+                                        <div 
+                                            key={index}
+                                            className="eight wide computer five wide large screen five wide widescreen column">
+                                            <ApplianceComponent
+                                                appliance={appliance}
+                                                onSave={this.onSave} />
+                                        </div>
+                                    )
+                                }
+                                else{
+                                    return (
+                                        <div 
+                                            key={index}
+                                            className="eight wide computer five wide large screen five wide widescreen column">
+                                            <ApplianceComponent
+                                                appliance={el}
+                                                onSave={this.onSave} />
+                                        </div>
+                                    )
+                                }
+                            })
+                        )
+                        :(<p></p>)
+                    }
                 </div>
             )
         );

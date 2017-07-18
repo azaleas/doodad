@@ -57,7 +57,12 @@ class AppliancesContainer extends Component {
                                     Thus, in props we will have the initially received data from the server.
 
                             */
-                            const appliance = Object.assign({}, el, this.state.dataUpdated);
+
+                            /*
+                                Initial:
+                                const appliance = Object.assign({}, el, this.state.dataUpdated);
+                            */
+                            const appliance = this.state.dataUpdated;
                             return (
                                 <div 
                                     key={index}
