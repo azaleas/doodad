@@ -37,35 +37,13 @@ class AppliancesContainer extends Component {
             <div className="ui centered stackable grid container">
                 {
                     data.map((el, index) =>{
+                        /*
+                        
+                        !!!Note: This if statement is not needed
+                        because the props are only 
+                        used when the appliance is mounted.
+
                         if(el.id == this.state.dataUpdated.id){
-                            /*Update the appliance with put request response.
-                              !!!Important note: Given that the update is 
-                                    happening on object element, components should use initial props
-                                    to update the status of the component.
-                                    Example from RangeComponent:
-
-                                    componentWillReceiveProps(nextProps){
-                                        this.setState({
-                                            isLoading: false,
-                                            saving: false,
-                                            rangeValue: this.state.percent,
-                                        })
-                                    }
-
-                                    Here, rangeValue can't be updated with newly received props, 
-                                    because below, we are only updating one element of the object.
-                                    Thus, in props we will have the initially received data from the server.
-
-                                    !!!Note: This if statement is not needed
-                                    because the props are only 
-                                    used when the appliance is mounted.
-    
-                            */
-
-                            /*
-                                Initial:
-                                const appliance = Object.assign({}, el, this.state.dataUpdated);
-                            */
                             const appliance = this.state.dataUpdated;
                             return (
                                 <div 
@@ -88,6 +66,17 @@ class AppliancesContainer extends Component {
                                 </div>
                             )
                         }
+                        
+                        */
+                        return(
+                            <div 
+                                key={index}
+                                className="eight wide computer five wide large screen five wide widescreen column">
+                                <ApplianceComponent
+                                    appliance={el}
+                                    onSave={this.onSave} />
+                            </div>
+                        )
                     })
                 }
             </div>
