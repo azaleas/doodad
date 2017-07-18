@@ -35,11 +35,14 @@ class RoomContainer extends Component {
             new roomId is extracted. 
             This roomId is used to fetch the data from the API about 
             the newly created room.
+            Redirect updates bunch of 
+            routing props(props.history, props.location etc)
         */
         const pathname = window.location.pathname;
         const roomsRegExp = /\/rooms\/(\d+)$/;
         const roomId = pathname.match(roomsRegExp)[1];
         if(roomId){
+            /*quick workaround to get the room name*/
             this.fetchRoomData(roomId);
         }
     }
