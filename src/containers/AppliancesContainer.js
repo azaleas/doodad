@@ -56,6 +56,10 @@ class AppliancesContainer extends Component {
                                     because below, we are only updating one element of the object.
                                     Thus, in props we will have the initially received data from the server.
 
+                                    !!!Note: This if statement is not needed
+                                    because the props are only 
+                                    used when the appliance is mounted.
+    
                             */
 
                             /*

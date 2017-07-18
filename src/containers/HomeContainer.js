@@ -99,7 +99,10 @@ class HomeContainer extends Component {
                                             Here, rangeValue can't be updated with newly received props, 
                                             because below, we are only updating one element of the object.
                                             Thus, in props we will have the initially received data from the server.
-
+                                            
+                                            !!!Note: This if statement is not needed
+                                                because the props are only 
+                                                used when the appliance is mounted.
                                     */
                                     
                                     /*
