@@ -35,7 +35,11 @@ class TemperatureComponent extends Component {
             degreeSelect: this.props.appliance.data.degrees,
             degreeSelectInitial: this.props.appliance.data.degrees,
         });
-        if(this.state.degreeSelect === "C"){
+        /*
+            state is async, use props
+            if(this.state.degreeSelect === "C"){
+        */
+        if(this.props.appliance.data.degrees === "C"){
             this.setState({
                 min: this.props.min[0],
                 max: this.props.max[0],
